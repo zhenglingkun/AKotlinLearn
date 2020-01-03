@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">AKotlinLearn</string>
+    <string name="app_name">日历</string>
+    <string name="stub_date">%1$s年%2$s月%3$s日</string>
+    <string name="stub_lunar">农历%1$s</string>
+    <string name="stub_holiday">%1$s（%2$s）</string>
+    <string name="stub_suite">宜：%1$s</string>
+    <string name="stub_avoid">忌：%1$s</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.zlk.akotlinlearn.net
 
-import com.zlk.akotlinlearn.bean.CalendarDayBean
-import com.zlk.akotlinlearn.bean.CalenderDayData
+import com.zlk.akotlinlearn.bean.BaseBean
+import com.zlk.akotlinlearn.bean.CalenderDayResult
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,6 +17,6 @@ interface RetrofitService {
     fun calenderDay(
         @Query("date") date: String,
         @Query("key") key: String
-    ): Observable<CalendarDayBean<CalenderDayData>>
+    ): Observable<BaseBean<CalenderDayResult>>
 
 }

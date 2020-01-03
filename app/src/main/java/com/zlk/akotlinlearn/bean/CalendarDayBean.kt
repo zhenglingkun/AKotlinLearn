@@ -1,12 +1,6 @@
 package com.zlk.akotlinlearn.bean
 
-data class CalendarDayBean<T> (
-    val reason: String,
-    val result: CalenderDayResult<T>,
-    val error_code: Int
-)
-
-data class CalenderDayResult<T> (val data: T)
+data class CalenderDayResult(val data: CalenderDayData)
 
 data class CalenderDayData(
     val date: String,// 具体日期(2015-1-1)
@@ -19,4 +13,4 @@ data class CalenderDayData(
     val lunar: String, // 农历(十一月十一)
     val lunarYear: String, // 纪年(甲午年)
     val desc: String // 假日描述(1月1日至3日放假调休，共3天。1月4日（星期日）上班。)
-    )
+)

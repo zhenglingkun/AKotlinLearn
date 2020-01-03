@@ -1,5 +1,6 @@
 package com.zlk.akotlinlearn
 
+import android.text.TextUtils
 import android.util.Log
 import androidx.annotation.NonNull
 import com.zlk.akotlinlearn.common.Constants
@@ -29,7 +30,20 @@ class MainPresenter constructor(@NonNull val view: MainContract.View) : MainCont
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
                 if (view.isActive) {
+                    var date: String = result.result.data.date
+                    var dates = date.split("-")
+                    view.showDate(dates)
+                    view.showWeekday(result.result.data.weekday)
+                    view.showLunar(result.result.data.lunar)
+                    view.showLunarYear(result.result.data.lunarYear)
+                    view.showAnimalsYear(result.result.data.animalsYear)
+                    if (!TextUtils.isEmpty(result.result.data.holiday)) {
+                        view.showHoliday(result.result.data.holiday, result.result.data.desc)
+                    } else {
+                        view.hideHoliday()
+                    }
                     view.showSuite(result.result.data.suit)
+                    view.showAvoid(result.result.data.avoid)
                 }
                 Log.e("Main", result.result.data.toString())
             }, { error ->

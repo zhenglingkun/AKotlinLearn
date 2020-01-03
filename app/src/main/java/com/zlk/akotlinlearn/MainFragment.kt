@@ -34,8 +34,47 @@ class MainFragment : Fragment(), MainContract.View {
         mPresenter.onStart()
     }
 
+    override fun showHoliday(holiday: String, desc: String) {
+        val s: String = getString(R.string.stub_holiday)
+        tvHoliday?.text = String.format(s, holiday, desc)
+        tvHoliday?.visibility = View.VISIBLE
+    }
+
+    override fun hideHoliday() {
+        tvHoliday?.text = ""
+        tvHoliday?.visibility = View.GONE
+    }
+
+    override fun showWeekday(weekday: String) {
+        tvWeekday?.text = weekday
+    }
+
+    override fun showDate(dates: MutableList<String>) {
+        val s: String = getString(R.string.stub_date)
+        tvDate?.text = String.format(s, dates[0], dates[1], dates[2])
+    }
+
+    override fun showLunar(lunar: String) {
+        val s: String = getString(R.string.stub_lunar)
+        tvLunar?.text = String.format(s, lunar)
+    }
+
+    override fun showLunarYear(lunarYear: String) {
+        tvLunarYear?.text = lunarYear
+    }
+
+    override fun showAnimalsYear(animalsYear: String) {
+        tvAnimalsYear?.text = animalsYear
+    }
+
     override fun showSuite(suit: String) {
-        tvSuite?.text = suit
+        val s: String = getString(R.string.stub_suite)
+        tvSuite?.text = String.format(s, suit)
+    }
+
+    override fun showAvoid(avoid: String) {
+        val s: String = getString(R.string.stub_avoid)
+        tvAvoid?.text = String.format(s, avoid)
     }
 
     override fun onDestroy() {

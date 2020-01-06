@@ -16,7 +16,11 @@ class RetrofitUtil {
             // 日志显示级别
             val level: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BODY
             // 新建log栏截器
-            val loggingInterceptor = HttpLoggingInterceptor()
+            val loggingInterceptor = HttpLoggingInterceptor(object: HttpLoggingInterceptor.Logger {
+                override fun log(message: String) {
+                    Log.i("netWork", "net = $message")
+                }
+            })
             loggingInterceptor.level = level
 
             val okHttpClientBuilder = OkHttpClient().newBuilder()

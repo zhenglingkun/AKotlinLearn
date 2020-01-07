@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frag_main.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 
 class MainFragment : Fragment(), MainContract.View {
 
@@ -27,6 +28,11 @@ class MainFragment : Fragment(), MainContract.View {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.frag_main, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tvTitle?.text = getString(R.string.app_name)
     }
 
     override fun onResume() {

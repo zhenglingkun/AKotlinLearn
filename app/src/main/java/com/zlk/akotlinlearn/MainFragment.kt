@@ -33,11 +33,18 @@ class MainFragment : Fragment(), MainContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvTitle?.text = getString(R.string.app_name)
+        swipeToLoadLayout?.setOnRefreshListener {
+            mPresenter.onStart()
+        }
     }
 
     override fun onResume() {
         super.onResume()
         mPresenter.onStart()
+    }
+
+    override fun refreshComplete() {
+        swipeToLoadLayout?.isRefreshing = false
     }
 
     override fun showHoliday(holiday: String, desc: String) {

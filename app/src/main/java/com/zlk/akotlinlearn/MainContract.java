@@ -27,6 +27,8 @@ public interface MainContract {
         void showLunarYear(@NotNull String lunarYear);
 
         void showAnimalsYear(@NotNull String animalsYear);
+
+        void refreshComplete();
     }
 
     interface Presenter extends BasePresenter {

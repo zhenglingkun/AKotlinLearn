@@ -30,6 +30,7 @@ class MainPresenter constructor(@NonNull val view: MainContract.View) : MainCont
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
                 if (view.isActive) {
+                    view.refreshComplete()
                     var date: String = result.result.data.date
                     var dates = date.split("-")
                     view.showDate(dates)

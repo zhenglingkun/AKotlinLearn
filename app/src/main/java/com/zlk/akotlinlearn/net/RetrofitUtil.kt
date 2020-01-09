@@ -13,14 +13,14 @@ class RetrofitUtil {
 
     companion object {
         private fun create(url: String): Retrofit {
-            // 日志显示级别
-            val level: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BODY
             // 新建log栏截器
             val loggingInterceptor = HttpLoggingInterceptor(object: HttpLoggingInterceptor.Logger {
                 override fun log(message: String) {
                     Log.i("netWork", "net = $message")
                 }
             })
+            // 日志显示级别
+            val level: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BODY
             loggingInterceptor.level = level
 
             val okHttpClientBuilder = OkHttpClient().newBuilder()

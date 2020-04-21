@@ -54,6 +54,7 @@ class MainPresenter constructor(@NonNull val view: MainContract.View) : MainCont
     }
 
     override fun onDestroy() {
+
         mDisposable.dispose()
     }
 }

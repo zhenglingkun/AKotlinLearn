@@ -12,8 +12,6 @@ class ActivityUtils {
             @NonNull fragmentManager: FragmentManager, @NonNull fragment: Fragment, frameId: Int,
             flag: String
         ) {
-            checkNotNull(fragmentManager)
-            checkNotNull(fragment)
             val transaction: FragmentTransaction = fragmentManager.beginTransaction()
             if (TextUtils.isEmpty(flag)) {
                 transaction.add(frameId, fragment)

@@ -13,8 +13,12 @@ class RetrofitUtil {
     companion object {
         const val baseUrl = "http://v.juhe.cn/"
 
-        val retrofitService: RetrofitService =
-            getService(baseUrl, RetrofitService::class.java)
+//        val retrofitService: RetrofitService =
+//            getService(baseUrl, RetrofitService::class.java)
+
+        fun <T> getService(service: Class<T>): T {
+            return create(baseUrl).create(service)
+        }
 
         /**
          * 获取ServiceApi

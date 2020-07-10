@@ -1,6 +1,5 @@
 package com.zlk.akotlinlearn.net
 
-import com.zlk.akotlinlearn.bean.BaseBean
 import com.zlk.akotlinlearn.bean.CalenderDayResult
 import io.reactivex.Observable
 import retrofit2.http.GET

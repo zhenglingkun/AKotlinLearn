@@ -1,4 +1,4 @@
-package com.zlk.akotlinlearn.bean
+package com.zlk.akotlinlearn.net
 
 data class BaseBean<T>(
     val reason: String,

@@ -4,6 +4,7 @@ import android.text.TextUtils
 import android.util.Log
 import androidx.annotation.NonNull
 import com.zlk.akotlinlearn.common.Constants
+import com.zlk.akotlinlearn.net.RetrofitService
 import com.zlk.akotlinlearn.net.RetrofitUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -15,6 +16,9 @@ class MainPresenter constructor(@NonNull val view: MainContract.View) : MainCont
 
     private val mDisposable: CompositeDisposable = CompositeDisposable()
 
+    private val retrofitService: RetrofitService =
+        RetrofitUtil.getService(RetrofitService::class.java)
+
     init {
         view.setPresenter(this)
     }
@@ -23,8 +27,7 @@ class MainPresenter constructor(@NonNull val view: MainContract.View) : MainCont
         val c: Calendar = Calendar.getInstance()
         val date =
             "${c.get(Calendar.YEAR)}-${c.get(Calendar.MONTH) + 1}-${c.get(Calendar.DAY_OF_MONTH)}"
-        val d: Disposable = RetrofitUtil
-            .retrofitService
+        val d: Disposable = retrofitService
             .calenderDay(date, Constants.KEY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

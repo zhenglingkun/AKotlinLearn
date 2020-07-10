@@ -49,15 +49,15 @@ class MainPresenter constructor(@NonNull val view: MainContract.View) : MainCont
                     view.showSuite(result.result.data.suit)
                     view.showAvoid(result.result.data.avoid)
                 }
-                Log.e("Main", result.result.data.toString())
+//                Log.e("Main", result.result.data.toString())
             }, { error ->
-                Log.e("Main", error.message.toString())
+//                Log.e("Main", error.message.toString())
+                Log.wtf("Main", error.message.toString())
             })
         mDisposable.add(d)
     }
 
     override fun onDestroy() {
-
         mDisposable.dispose()
     }
 }

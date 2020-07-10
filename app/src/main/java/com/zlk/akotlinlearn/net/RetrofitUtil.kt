@@ -17,7 +17,7 @@ class RetrofitUtil {
 //            getService(baseUrl, RetrofitService::class.java)
 
         fun <T> getService(service: Class<T>): T {
-            return create(baseUrl).create(service)
+            return getService(baseUrl, service)
         }
 
         /**

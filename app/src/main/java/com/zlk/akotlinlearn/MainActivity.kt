@@ -1,12 +1,12 @@
 package com.zlk.akotlinlearn
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.zlk.akotlinlearn.common.ActivityUtils
+import com.zlk.akotlinlearn.common.BaseAty
 
 const val TAG_FLAG_MAIN: String = "main"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseAty() {
 
     lateinit var mPresenter: MainPresenter
 
